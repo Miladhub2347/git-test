@@ -1,4 +1,4 @@
-name: Hallo-Aktion
+name: Mehrstufiger Ablauf
 
 on:
   push:
@@ -6,12 +6,30 @@ on:
       - rebase-test
 
 jobs:
-  build:
+  check-code:
     runs-on: ubuntu-latest
     steps:
       - name: Projekt klonen
         uses: actions/checkout@v4
 
-      - name: Zeige Nachricht
-        run: echo "Das Projekt wurde erfolgreich gepusht!"
+      - name: Prüfe auf hallo.txt
+        run: |
+          if [ ! -f hallo.txt ]; then
+            echo "Datei fehlt!" && exit 1
+          fi
+          echo "Datei gefunden."
+
+  run-tests:
+    needs: check-code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test-Ausgabe
+        run: echo "Simuliere Tests... alles OK."
+
+  build-ready:
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bereit zum Bauen
+        run: echo "✅ Alles bereit für Build oder Deployment."
 

@@ -1,4 +1,4 @@
 Hallo Git!
-hello world!
+Master version!
 another line!
 idee auf branch!

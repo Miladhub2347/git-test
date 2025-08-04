@@ -3,7 +3,7 @@ name: Hallo-Aktion
 on:
   push:
     branches:
-      - master
+      - rebase-test
 
 jobs:
   build:

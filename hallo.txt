@@ -1,8 +1,0 @@
-Hallo Git!
-Master version!
-branch version!
-another line!
-idee auf branch!
-Änderung im Master
-Unfertige Idee
-Rebase-Test

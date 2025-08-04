@@ -1,0 +1,17 @@
+name: Hallo-Aktion
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Projekt klonen
+        uses: actions/checkout@v4
+
+      - name: Zeige Nachricht
+        run: echo "Das Projekt wurde erfolgreich gepusht!"
+
